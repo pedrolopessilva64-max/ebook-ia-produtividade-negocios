@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>IA para Produtividade e Negócios</title>
+    <meta
+      name="description"
+      content="E-book profissional sobre inteligência artificial para produtividade, gestão, vendas, marketing e negócios."
+    />
+    <style>
+      :root {
+        --bg: #08111f;
+        --bg-soft: #101c2f;
+        --panel: #13233d;
+        --panel-alt: #1a2d46;
+        --text: #eaf2ff;
+        --muted: #afc2dd;
+        --primary: #7cc8ff;
+        --primary-2: #5ee3aa;
+        --accent: #f4c35d;
+        --line: rgba(255, 255, 255, 0.08);
+        --shadow: 0 20px 45px rgba(5, 10, 19, 0.35);
+      }
+
+      * { box-sizing: border-box; }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        margin: 0;
+        font-family: Arial, Helvetica, sans-serif;
+        background: linear-gradient(180deg, #07111f 0%, #0a1729 100%);
+        color: var(--text);
+        line-height: 1.6;
+      }
+
+      a {
+        color: var(--primary);
+        text-decoration: none;
+      }
+
+      img {
+        max-width: 100%;
+        display: block;
+      }
+
+      .container {
+        width: min(1120px, calc(100% - 32px));
+        margin: 0 auto;
+      }
+
+      .topbar {
+        position: sticky;
+        top: 0;
+        z-index: 20;
+        backdrop-filter: blur(10px);
+        background: rgba(8, 17, 31, 0.78);
+        border-bottom: 1px solid var(--line);
+      }
+
+      .topbar-inner {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        min-height: 72px;
+      }
+
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        font-weight: 700;
+        letter-spacing: 0.03em;
+      }
+
+      .brand-mark {
+        width: 34px;
+        height: 34px;
+        border-radius: 10px;
+        background: linear-gradient(135deg, var(--primary), var(--primary-2));
+        display: grid;
+        place-items: center;
+        color: #08111f;
+        font-weight: 800;
+      }
+
+      .nav {
+        display: flex;
+        gap: 20px;
+        flex-wrap: wrap;
+        align-items: center;
+      }
+
+      .nav a {
+        color: var(--muted);
+        font-size: 0.96rem;
+      }
+
+      .nav a:hover { color: var(--text); }
+
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 999px;
+        padding: 14px 24px;
+        font-weight: 700;
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+      }
+
+      .btn:hover {
+        transform: translateY(-2px);
+      }
+
+      .btn-primary {
+        background: linear-gradient(135deg, var(--primary), var(--primary-2));
+        color: #06121d;
+        box-shadow: 0 16px 28px rgba(94, 227, 170, 0.2);
+      }
+
+      .btn-secondary {
+        border: 1px solid rgba(124, 200, 255, 0.3);
+        color: var(--text);
+        background: rgba(255, 255, 255, 0.02);
+      }
+
+      .hero {
+        padding: 72px 0 40px;
+      }
+
+      .hero-grid {
+        display: grid;
+        grid-template-columns: 1.2fr 0.8fr;
+        gap: 34px;
+        align-items: center;
+      }
+
+      .eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        background: rgba(124, 200, 255, 0.1);
+        color: var(--primary);
+        border: 1px solid rgba(124, 200, 255, 0.2);
+        border-radius: 999px;
+        padding: 8px 12px;
+        font-size: 0.8rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+      }
+
+      h1 {
+        font-size: clamp(2.6rem, 4vw, 5rem);
+        line-height: 1.02;
+        margin: 18px 0 18px;
+        letter-spacing: -0.05em;
+      }
+
+      .hero h1 .highlight {
+        background: linear-gradient(135deg, var(--primary), var(--primary-2));
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+      }
+
+      .subtitle {
+        color: var(--muted);
+        font-size: 1.08rem;
+        max-width: 650px;
+      }
+
+      .cta-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 16px;
+        margin-top: 30px;
+      }
+
+      .stats {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(100px, 1fr));
+        gap: 18px;
+        margin-top: 32px;
+      }
+
+      .stat {
+        background: rgba(255, 255, 255, 0.02);
+        border: 1px solid var(--line);
+        border-radius: 18px;
+        padding: 20px 18px;
+      }
+
+      .stat strong {
+        display: block;
+        font-size: 1.6rem;
+        color: var(--text);
+      }
+
+      .stat span {
+        color: var(--muted);
+      }
+
+      .card-book {
+        position: relative;
+        background: linear-gradient(180deg, #172845 0%, #0d1b2c 100%);
+        border: 1px solid rgba(124, 200, 255, 0.2);
+        border-radius: 26px;
+        box-shadow: var(--shadow);
+        padding: 22px;
+        min-height: 480px;
+      }
+
+      .book-shell {
+        position: relative;
+        height: 100%;
+        min-height: 420px;
+        border-radius: 20px;
+        padding: 24px;
+        background: linear-gradient(160deg, #111d30 0%, #101925 100%);
+        border: 1px solid rgba(124, 200, 255, 0.12);
+      }
+
+      .book-shell::before {
+        content: "";
+        position: absolute;
+        inset: 16px;
+        border-radius: 18px;
+        border: 1px solid rgba(255, 255, 255, 0.06);
+      }
+
+      .book-content {
+        position: relative;
+        z-index: 1;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+      }
+
+      .tiny-label {
+        color: var(--primary);
+        font-size: 0.72rem;
+        font-weight: 700;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+
+      .book-title {
+        margin-top: 14px;
+        font-size: clamp(2rem, 2.5vw, 2.7rem);
+        line-height: 1.08;
+        letter-spacing: -0.04em;
+      }
+
+      .book-meta {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-top: 18px;
+      }
+
+      .tag {
+        background: rgba(94, 227, 170, 0.08);
+        border: 1px solid rgba(94, 227, 170, 0.2);
+        color: var(--primary-2);
+        padding: 7px 12px;
+        border-radius: 999px;
+        font-size: 0.8rem;
+        font-weight: 600;
+      }
+
+      .book-footer {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 14px;
+        margin-top: 28px;
+        padding-top: 18px;
+        border-top: 1px solid var(--line);
+      }
+
+      .book-footer strong {
+        display: block;
+        font-size: 1.1rem;
+      }
+
+      .book-footer span {
+        color: var(--muted);
+        font-size: 0.8rem;
+      }
+
+      section {
+        padding: 54px 0;
+      }
+
+      .section-heading {
+        max-width: 760px;
+        margin-bottom: 30px;
+      }
+
+      .section-heading h2 {
+        margin: 0 0 12px;
+        font-size: clamp(2rem, 3vw, 3rem);
+        letter-spacing: -0.04em;
+      }
+
+      .section-heading p {
+        margin: 0;
+        color: var(--muted);
+        font-size: 1.02rem;
+      }
+
+      .feature-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 20px;
+      }
+
+      .feature {
+        background: rgba(255, 255, 255, 0.02);
+        border: 1px solid var(--line);
+        border-radius: 22px;
+        padding: 24px;
+      }
+
+      .feature-icon {
+        width: 52px;
+        height: 52px;
+        border-radius: 14px;
+        display: grid;
+        place-items: center;
+        background: linear-gradient(135deg, rgba(124, 200, 255, 0.18), rgba(94, 227, 170, 0.15));
+        color: var(--primary);
+        font-size: 1.6rem;
+        margin-bottom: 18px;
+      }
+
+      .feature h3 {
+        margin: 0 0 10px;
+        font-size: 1.25rem;
+      }
+
+      .feature p {
+        margin: 0;
+        color: var(--muted);
+      }
+
+      .chapters {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 18px;
+      }
+
+      .chapter {
+        background: rgba(255, 255, 255, 0.02);
+        border: 1px solid var(--line);
+        border-radius: 20px;
+        padding: 22px;
+      }
+
+      .chapter-number {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 42px;
+        height: 42px;
+        border-radius: 12px;
+        background: rgba(124, 200, 255, 0.12);
+        color: var(--primary);
+        font-weight: 800;
+        margin-bottom: 14px;
+      }
+
+      .chapter h3 {
+        margin: 0 0 10px;
+        font-size: 1.28rem;
+      }
+
+      .chapter p {
+        margin: 0;
+        color: var(--muted);
+      }
+
+      .prompt-box {
+        background: linear-gradient(180deg, rgba(19, 35, 61, 0.96), rgba(10, 23, 39, 0.96));
+        border: 1px solid var(--line);
+        border-radius: 22px;
+        padding: 22px;
+      }
+
+      .prompt-list {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 14px;
+        margin-top: 20px;
+      }
+
+      .prompt-item {
+        background: rgba(255, 255, 255, 0.02);
+        border: 1px solid var(--line);
+        border-radius: 16px;
+        padding: 16px;
+        color: var(--muted);
+        font-size: 0.96rem;
+      }
+
+      .bonus-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 18px;
+      }
+
+      .bonus {
+        background: rgba(255, 255, 255, 0.02);
+        border: 1px solid var(--line);
+        border-radius: 18px;
+        padding: 20px;
+      }
+
+      .bonus h3 {
+        margin: 0 0 12px;
+        font-size: 1.1rem;
+      }
+
+      .bonus p {
+        margin: 0;
+        color: var(--muted);
+      }
+
+      .cta-panel {
+        padding: 24px;
+        background: linear-gradient(135deg, rgba(124, 200, 255, 0.08), rgba(94, 227, 170, 0.08));
+        border: 1px solid rgba(124, 200, 255, 0.18);
+        border-radius: 24px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 22px;
+      }
+
+      .cta-panel h3 {
+        margin: 0 0 8px;
+        font-size: clamp(1.7rem, 2vw, 2.4rem);
+        letter-spacing: -0.03em;
+      }
+
+      .cta-panel p {
+        margin: 0;
+        color: var(--muted);
+      }
+
+      footer {
+        padding: 24px 0 60px;
+        color: var(--muted);
+        text-align: center;
+      }
+
+      @media (max-width: 900px) {
+        .hero-grid,
+        .feature-grid,
+        .chapters,
+        .prompt-list,
+        .bonus-grid,
+        .cta-panel {
+          grid-template-columns: 1fr;
+        }
+
+        .hero-grid {
+          display: block;
+        }
+
+        .card-book {
+          margin-top: 28px;
+        }
+
+        .cta-panel {
+          display: block;
+        }
+      }
+
+      @media (max-width: 640px) {
+        .nav {
+          display: none;
+        }
+
+        .stats {
+          grid-template-columns: 1fr;
+        }
+
+        .hero {
+          padding-top: 48px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="container topbar-inner">
+        <div class="brand">
+          <div class="brand-mark">AI</div>
+          <span>IA para Produtividade</span>
+        </div>
+
+        <nav class="nav" aria-label="Navegação principal">
+          <a href="#sobre">Sobre</a>
+          <a href="#beneficios">Benefícios</a>
+          <a href="#capitulos">Capítulos</a>
+          <a href="#prompts">Prompts</a>
+          <a href="#bônus">Bônus</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero" id="sobre">
+        <div class="container hero-grid">
+          <div>
+            <span class="eyebrow">E-book profissional</span>
+            <h1>
+              IA para <span class="highlight">Produtividade</span> e Negócios
+            </h1>
+            <p class="subtitle">
+              Guia completo para transformar inteligência artificial em vantagem competitiva,
+              com foco em produtividade, estratégia, marketing, gestão e execução real.
+            </p>
+
+            <div class="cta-row">
+              <a class="btn btn-primary" href="#capitulos">Ver capítulos</a>
+              <a class="btn btn-secondary" href="README.md">Ler no README</a>
+            </div>
+
+            <div class="stats">
+              <div class="stat">
+                <strong>78</strong>
+                <span>páginas</span>
+              </div>
+              <div class="stat">
+                <strong>200+</strong>
+                <span>prompts</span>
+              </div>
+              <div class="stat">
+                <strong>6</strong>
+                <span>bônus</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="card-book" aria-label="Capa do e-book">
+            <div class="book-shell">
+              <div class="book-content">
+                <div>
+                  <div class="tiny-label">PROFISSIONAL</div>
+                  <div class="book-title">IA para Produtividade e Negócios</div>
+                  <div class="book-meta">
+                    <span class="tag">Estratégia</span>
+                    <span class="tag">Automação</span>
+                    <span class="tag">Resultados</span>
+                  </div>
+                </div>
+
+                <div class="book-footer">
+                  <div>
+                    <strong>Guia completo</strong>
+                    <span>com 200+ prompts prontos para uso</span>
+                  </div>
+                  <div class="tiny-label">2026</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="beneficios">
+        <div class="container">
+          <div class="section-heading">
+            <h2>O que você vai aprender</h2>
+            <p>
+              Este material foi desenhado para quem quer usar IA como aliado estratégico,
+              sem perder qualidade, clareza e visão de negócio.
+            </p>
+          </div>
+
+          <div class="feature-grid">
+            <article class="feature">
+              <div class="feature-icon">⚡</div>
+              <h3>Produtividade real</h3>
+              <p>
+                Aprenda a reduzir tarefas repetitivas, organizar melhor sua rotina e ganhar tempo com foco em ações de alto valor.
+              </p>
+            </article>
+
+            <article class="feature">
+              <div class="feature-icon">📈</div>
+              <h3>Decisão com dados</h3>
+              <p>
+                Descubra como a IA ajuda a comparar cenários, interpretar informações e apoiar melhores decisões no trabalho e no negócio.
+              </p>
+            </article>
+
+            <article class="feature">
+              <div class="feature-icon">🚀</div>
+              <h3>Negócios escaláveis</h3>
+              <p>
+                Veja aplicações práticas em marketing, vendas, operação, lideranças e comunicação para criar vantagem competitiva.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="capitulos">
+        <div class="container">
+          <div class="section-heading">
+            <h2>Capítulos principais</h2>
+            <p>
+              Estrutura pensada para levar você do básico à aplicação prática em rotina profissional e estratégia de negócios.
+            </p>
+          </div>
+
+          <div class="chapters">
+            <article class="chapter">
+              <div class="chapter-number">01</div>
+              <h3>O que é IA e por que ela muda o trabalho</h3>
+              <p>Entenda os fundamentos, os usos práticos e a lógica por trás da transformação digital no ambiente profissional.</p>
+            </article>
+
+            <article class="chapter">
+              <div class="chapter-number">02</div>
+              <h3>IA para produtividade pessoal</h3>
+              <p>Saiba como organizar tarefas, gerar resumos, criar conteúdo e reduzir distrações com inteligência artificial.</p>
+            </article>
+
+            <article class="chapter">
+              <div class="chapter-number">03</div>
+              <h3>IA para gestão e liderança</h3>
+              <p>Use IA para apoiar planejamento, métricas e tomada de decisão com mais clareza e menos ruído.</p>
+            </article>
+
+            <article class="chapter">
+              <div class="chapter-number">04</div>
+              <h3>IA para marketing e vendas</h3>
+              <p>Crie campanhas, mensagens, propostas e materiais de conversão com maior velocidade e personalização.</p>
+            </article>
+
+            <article class="chapter">
+              <div class="chapter-number">05</div>
+              <h3>IA para operações e automação</h3>
+              <p>Identifique tarefas repetitivas, transforme processos manuais e amplie a eficiência da operação.</p>
+            </article>
+
+            <article class="chapter">
+              <div class="chapter-number">06</div>
+              <h3>Ética, segurança e uso responsável</h3>
+              <p>Aprenda a aplicar IA com rigor, evitando riscos de privacidade, qualidade e reputação.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="prompts">
+        <div class="container">
+          <div class="section-heading">
+            <h2>Mais de 200 prompts prontos</h2>
+            <p>
+              Exemplos práticos para produtividade, gestão, comunicação, marketing, operação e estratégia.
+            </p>
+          </div>
+
+          <div class="prompt-box">
+            <div class="prompt-list">
+              <div class="prompt-item">“Crie um plano de produtividade de 30 dias para foco, disciplina e organização pessoal.”</div>
+              <div class="prompt-item">“Escreva um e-mail profissional para um cliente pedindo uma reunião de alinhamento.”</div>
+              <div class="prompt-item">“Revise este texto para melhorar clareza, objetividade e tom executivo.”</div>
+              <div class="prompt-item">“Gere 10 ideias de campanha para vender um serviço B2B para pequenas empresas.”</div>
+              <div class="prompt-item">“Analise este relatório e identifique riscos, oportunidades e ações prioritárias.”</div>
+              <div class="prompt-item">“Crie um checklist de onboarding para clientes com 5 etapas claras.”</div>
+              <div class="prompt-item">“Transforme estas anotações em uma agenda semanal com prioridades e blocos de tempo.”</div>
+              <div class="prompt-item">“Elabore uma proposta de valor para um serviço de consultoria de produtividade.”</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="bônus">
+        <div class="container">
+          <div class="section-heading">
+            <h2>Bônus exclusivos</h2>
+            <p>
+              Material complementar para colocar a IA no dia a dia com mais organização e qualidade.
+            </p>
+          </div>
+
+          <div class="bonus-grid">
+            <article class="bonus">
+              <h3>Checklist de produtividade</h3>
+              <p>Um framework prático para diagnosticar tarefas, definir objetivos e aplicar IA de forma consistente.</p>
+            </article>
+
+            <article class="bonus">
+              <h3>Frases para reuniões</h3>
+              <p>Mensagens prontas para gerar mais clareza, foco e alinhamento em conversas profissionais.</p>
+            </article>
+
+            <article class="bonus">
+              <h3>Modelo de briefing</h3>
+              <p>Estrutura útil para que você peça melhor resultados à IA e reduza retrabalho e baixa qualidade.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="container">
+          <div class="cta-panel">
+            <div>
+              <h3>Pronto para começar?</h3>
+              <p>Leitura prática, direta e pensada para quem quer agir com inteligência e estratégia.</p>
+            </div>
+            <div>
+              <a class="btn btn-primary" href="README.md">Abrir conteúdo completo</a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container">
+        © 2026 — IA para Produtividade e Negócios
+      </div>
+    </footer>
+  </body>
+</html>
