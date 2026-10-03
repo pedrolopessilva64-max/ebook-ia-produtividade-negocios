@@ -4,40 +4,57 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>IA para Produtividade e Negócios</title>
-    <meta name="description" content="E-book profissional com 78 páginas, 200+ prompts e 6 bônus para produtividade e negócios com IA." />
+    <meta
+      name="description"
+      content="E-book profissional: IA para produtividade e negócios com 78 páginas, 200+ prompts e 6 bônus."
+    />
     <style>
       :root {
-        --bg-900: #07111d;
-        --bg-800: #0a1728;
-        --bg-700: #101f31;
-        --panel: rgba(18, 31, 46, 0.88);
-        --panel-2: rgba(12, 21, 31, 0.88);
-        --line: rgba(255,255,255,0.08);
+        --bg: #07111d;
+        --bg-2: #0c1d2d;
+        --panel: rgba(14, 26, 39, 0.92);
+        --panel-strong: rgba(18, 31, 46, 0.96);
+        --line: rgba(255, 255, 255, 0.08);
         --primary: #7cc8ff;
-        --primary-strong: #4ec9ff;
         --secondary: #5ee3aa;
         --accent: #f4c35d;
-        --text: #eff7ff;
-        --text-soft: #b7cce8;
-        --muted: #8fa7c3;
-        --shadow: 0 20px 45px rgba(0,0,0,0.35);
+        --text: #edf6ff;
+        --text-soft: #b9cde7;
+        --muted: #8ca4c1;
       }
 
-      * { box-sizing: border-box; }
-      html { scroll-behavior: smooth; }
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
       body {
         margin: 0;
         font-family: Arial, Helvetica, sans-serif;
-        background:
-          radial-gradient(circle at top left, rgba(124, 200, 255, 0.09), transparent 28%),
-          radial-gradient(circle at bottom right, rgba(94, 227, 170, 0.08), transparent 30%),
-          linear-gradient(180deg, var(--bg-900) 0%, #0b1828 100%);
         color: var(--text);
+        background:
+          radial-gradient(circle at top left, rgba(124, 200, 255, 0.12), transparent 25%),
+          radial-gradient(circle at bottom right, rgba(94, 227, 170, 0.10), transparent 28%),
+          linear-gradient(180deg, var(--bg) 0%, var(--bg-2) 100%);
         line-height: 1.6;
       }
-      a { color: inherit; text-decoration: none; }
-      img { display: block; max-width: 100%; }
-      button { font: inherit; }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      img {
+        max-width: 100%;
+        display: block;
+      }
+
+      ::selection {
+        background: rgba(124, 200, 255, 0.35);
+      }
 
       .container {
         width: min(1200px, calc(100% - 32px));
@@ -48,10 +65,11 @@
         position: sticky;
         top: 0;
         z-index: 20;
-        backdrop-filter: blur(14px);
-        background: rgba(7,17,29,0.7);
+        backdrop-filter: blur(12px);
+        background: rgba(7, 17, 29, 0.78);
         border-bottom: 1px solid var(--line);
       }
+
       .nav {
         min-height: 78px;
         display: flex;
@@ -59,191 +77,219 @@
         justify-content: space-between;
         gap: 16px;
       }
+
       .brand {
         display: flex;
         align-items: center;
         gap: 12px;
         font-weight: 800;
-        letter-spacing: 0.03em;
+        letter-spacing: 0.04em;
       }
+
       .brand-mark {
         width: 38px;
         height: 38px;
-        border-radius: 12px;
         display: grid;
         place-items: center;
+        border-radius: 12px;
         background: linear-gradient(135deg, var(--primary), var(--secondary));
         color: #07111d;
         font-weight: 900;
-        font-size: 0.84rem;
       }
+
       .nav-links {
         display: flex;
         align-items: center;
         gap: 26px;
         flex-wrap: wrap;
       }
+
       .nav-links a {
         color: var(--text-soft);
-        font-size: 0.95rem;
+        font-size: 0.96rem;
       }
-      .nav-links a:hover { color: var(--text); }
-      .nav-actions {
-        display: flex;
-        gap: 12px;
-        align-items: center;
+
+      .nav-links a:hover {
+        color: var(--text);
       }
+
       .btn {
         display: inline-flex;
-        justify-content: center;
         align-items: center;
-        border-radius: 12px;
+        justify-content: center;
         border: 1px solid transparent;
-        padding: 12px 22px;
+        border-radius: 12px;
+        padding: 12px 20px;
+        font-family: inherit;
         font-weight: 700;
         cursor: pointer;
-        transition: transform 0.22s ease, box-shadow 0.22s ease, opacity 0.2s ease;
+        transition: transform 0.22s ease, box-shadow 0.22s ease;
       }
-      .btn:hover { transform: translateY(-2px); }
+
+      .btn:hover {
+        transform: translateY(-2px);
+      }
+
       .btn-primary {
         background: linear-gradient(135deg, var(--primary), var(--secondary));
         color: #07111d;
-        box-shadow: 0 12px 28px rgba(94,227,170,0.18);
+        box-shadow: 0 14px 28px rgba(94, 227, 170, 0.18);
       }
+
       .btn-secondary {
-        background: rgba(255,255,255,0.02);
-        border-color: rgba(124,200,255,0.25);
+        background: rgba(255, 255, 255, 0.02);
+        border-color: rgba(124, 200, 255, 0.25);
         color: var(--text);
       }
 
       .hero {
-        padding: 72px 0 70px;
+        padding: 80px 0 64px;
       }
+
       .hero-grid {
         display: grid;
-        grid-template-columns: 1.14fr 0.86fr;
-        gap: 44px;
+        grid-template-columns: 1.12fr 0.88fr;
+        gap: 40px;
         align-items: center;
       }
+
       .eyebrow {
         display: inline-block;
         padding: 8px 14px;
         border-radius: 999px;
-        border: 1px solid rgba(124,200,255,0.22);
-        background: rgba(124,200,255,0.08);
+        background: rgba(124, 200, 255, 0.08);
+        border: 1px solid rgba(124, 200, 255, 0.20);
         color: var(--primary);
-        font-size: 0.7rem;
         text-transform: uppercase;
-        font-weight: 800;
         letter-spacing: 0.09em;
+        font-size: 0.72rem;
+        font-weight: 800;
       }
+
       h1 {
-        margin: 16px 0 18px;
-        font-size: clamp(2.8rem, 5vw, 5rem);
+        margin: 18px 0 18px;
+        font-size: clamp(2.8rem, 5vw, 4.8rem);
         line-height: 1.04;
         letter-spacing: -0.05em;
       }
+
       .gradient {
         background: linear-gradient(135deg, var(--primary), var(--secondary));
         -webkit-background-clip: text;
         background-clip: text;
         color: transparent;
       }
+
       .subtitle {
-        max-width: 640px;
-        color: var(--text-soft);
+        max-width: 620px;
         font-size: 1.08rem;
+        color: var(--text-soft);
       }
+
       .cta-row {
         display: flex;
         flex-wrap: wrap;
         gap: 14px;
         margin-top: 30px;
       }
+
       .stats {
+        margin-top: 36px;
         display: grid;
-        grid-template-columns: repeat(3, minmax(90px, 1fr));
+        grid-template-columns: repeat(3, minmax(110px, 1fr));
         gap: 18px;
-        margin-top: 34px;
       }
+
       .stat {
-        background: rgba(255,255,255,0.02);
-        border: 1px solid var(--line);
-        border-radius: 18px;
         padding: 18px 12px;
+        border: 1px solid var(--line);
+        background: rgba(255, 255, 255, 0.02);
+        border-radius: 18px;
         text-align: center;
       }
+
       .stat strong {
         display: block;
         font-size: 1.8rem;
         color: var(--primary);
       }
+
       .stat span {
         display: block;
-        font-size: 0.78rem;
-        letter-spacing: 0.07em;
-        text-transform: uppercase;
+        margin-top: 6px;
         color: var(--muted);
+        font-size: 0.72rem;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
       }
 
       .book-card {
         position: relative;
-        background: linear-gradient(180deg, rgba(20,36,54,0.96), rgba(10,20,31,0.96));
-        border: 1px solid rgba(124,200,255,0.18);
-        border-radius: 28px;
+        background: linear-gradient(180deg, rgba(19, 33, 48, 0.96), rgba(8, 17, 27, 0.96));
+        border: 1px solid rgba(124, 200, 255, 0.18);
         padding: 22px;
-        box-shadow: var(--shadow);
+        border-radius: 28px;
+        box-shadow: 0 18px 54px rgba(0, 0, 0, 0.42);
       }
+
       .book-inner {
         min-height: 470px;
-        border-radius: 22px;
         border: 1px solid var(--line);
-        background: linear-gradient(180deg, rgba(17, 29, 43, 0.96), rgba(8,17,27,0.96));
+        border-radius: 20px;
         padding: 28px;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
+        background: linear-gradient(180deg, rgba(17, 29, 43, 0.96), rgba(8, 17, 27, 0.96));
       }
+
       .book-badge {
         color: var(--primary);
         font-size: 0.72rem;
         text-transform: uppercase;
-        letter-spacing: 0.1em;
+        letter-spacing: 0.10em;
         font-weight: 800;
       }
+
       .book-title {
-        margin-top: 16px;
-        font-size: clamp(2rem, 2.9vw, 2.8rem);
+        margin-top: 18px;
+        font-size: clamp(2rem, 2.5vw, 2.8rem);
         line-height: 1.08;
         letter-spacing: -0.04em;
       }
+
       .tag-row {
         display: flex;
         flex-wrap: wrap;
         gap: 10px;
         margin-top: 20px;
       }
+
       .tag {
+        display: inline-flex;
         padding: 7px 12px;
         border-radius: 999px;
-        background: rgba(94,227,170,0.08);
-        border: 1px solid rgba(94,227,170,0.2);
+        background: rgba(94, 227, 170, 0.08);
+        border: 1px solid rgba(94, 227, 170, 0.22);
         color: var(--secondary);
         font-size: 0.74rem;
         font-weight: 700;
       }
+
       .book-footer {
+        padding-top: 16px;
         border-top: 1px solid var(--line);
-        padding-top: 18px;
         display: flex;
         justify-content: space-between;
         align-items: center;
         gap: 12px;
       }
+
       .book-footer strong {
         display: block;
         font-size: 1.1rem;
       }
+
       .book-footer span {
         color: var(--muted);
         font-size: 0.8rem;
@@ -252,15 +298,18 @@
       section {
         padding: 72px 0;
       }
+
       .section-header {
-        max-width: 780px;
+        max-width: 760px;
         margin-bottom: 28px;
       }
+
       .section-header h2 {
         margin: 0 0 12px;
         font-size: clamp(2rem, 3vw, 3rem);
         letter-spacing: -0.04em;
       }
+
       .section-header p {
         margin: 0;
         color: var(--text-soft);
@@ -271,27 +320,31 @@
         grid-template-columns: repeat(3, minmax(0, 1fr));
         gap: 20px;
       }
+
       .feature {
-        background: rgba(255,255,255,0.02);
+        background: rgba(255, 255, 255, 0.02);
         border: 1px solid var(--line);
         border-radius: 20px;
         padding: 24px;
       }
+
       .feature-icon {
         width: 58px;
         height: 58px;
-        border-radius: 15px;
         display: grid;
         place-items: center;
-        background: linear-gradient(135deg, rgba(124,200,255,0.12), rgba(94,227,170,0.12));
+        margin-bottom: 18px;
+        border-radius: 16px;
+        background: linear-gradient(135deg, rgba(124, 200, 255, 0.12), rgba(94, 227, 170, 0.12));
         color: var(--primary);
-        font-size: 1.6rem;
-        margin-bottom: 16px;
+        font-size: 1.7rem;
       }
+
       .feature h3 {
         margin: 0 0 8px;
-        font-size: 1.2rem;
+        font-size: 1.18rem;
       }
+
       .feature p {
         margin: 0;
         color: var(--text-soft);
@@ -302,49 +355,54 @@
         grid-template-columns: repeat(2, minmax(0, 1fr));
         gap: 18px;
       }
+
       .chapter {
-        background: rgba(255,255,255,0.02);
+        background: rgba(255, 255, 255, 0.02);
         border: 1px solid var(--line);
         border-radius: 18px;
-        padding: 24px;
+        padding: 22px;
       }
+
       .chapter-number {
         width: 42px;
         height: 42px;
-        border-radius: 12px;
         display: grid;
         place-items: center;
+        margin-bottom: 14px;
+        border-radius: 12px;
         background: linear-gradient(135deg, var(--primary), var(--secondary));
         color: #07111d;
         font-weight: 900;
-        margin-bottom: 14px;
       }
+
       .chapter h3 {
-        margin: 0 0 10px;
-        font-size: 1.18rem;
+        margin: 0 0 8px;
+        font-size: 1.14rem;
       }
+
       .chapter p {
         margin: 0;
         color: var(--text-soft);
       }
 
       .prompt-box {
-        background: linear-gradient(180deg, rgba(18,31,46,0.95), rgba(10,20,33,0.95));
+        background: linear-gradient(180deg, rgba(18, 31, 46, 0.96), rgba(9, 19, 30, 0.96));
         border: 1px solid var(--line);
         border-radius: 22px;
         padding: 24px;
       }
+
       .prompt-list {
         display: grid;
         grid-template-columns: repeat(2, minmax(0, 1fr));
         gap: 14px;
-        margin-top: 18px;
       }
+
       .prompt-item {
-        background: rgba(255,255,255,0.02);
+        padding: 16px;
         border: 1px solid var(--line);
         border-radius: 14px;
-        padding: 16px;
+        background: rgba(255, 255, 255, 0.02);
         color: var(--text-soft);
       }
 
@@ -353,36 +411,41 @@
         grid-template-columns: repeat(3, minmax(0, 1fr));
         gap: 18px;
       }
+
       .bonus {
-        background: rgba(255,255,255,0.02);
+        padding: 22px;
+        background: rgba(255, 255, 255, 0.02);
         border: 1px solid var(--line);
         border-radius: 18px;
-        padding: 24px;
       }
+
       .bonus h3 {
         margin: 0 0 8px;
         font-size: 1.12rem;
       }
+
       .bonus p {
         margin: 0;
         color: var(--text-soft);
       }
 
       .cta-panel {
-        background: linear-gradient(135deg, rgba(124,200,255,0.08), rgba(94,227,170,0.09));
-        border: 1px solid rgba(124,200,255,0.2);
-        border-radius: 24px;
-        padding: 28px 24px;
         display: flex;
         justify-content: space-between;
         align-items: center;
-        gap: 20px;
+        gap: 18px;
+        padding: 30px 24px;
+        border-radius: 24px;
+        border: 1px solid rgba(124, 200, 255, 0.22);
+        background: linear-gradient(135deg, rgba(124, 200, 255, 0.08), rgba(94, 227, 170, 0.08));
       }
+
       .cta-panel h3 {
         margin: 0 0 8px;
-        font-size: clamp(1.8rem, 2.4vw, 2.6rem);
+        font-size: clamp(1.8rem, 2.5vw, 2.6rem);
         letter-spacing: -0.04em;
       }
+
       .cta-panel p {
         margin: 0;
         color: var(--text-soft);
@@ -395,18 +458,28 @@
       }
 
       @media (max-width: 900px) {
-        .hero-grid { display: block; }
-        .feature-grid, .chapter-grid, .bonus-grid, .prompt-list { grid-template-columns: 1fr; }
-        .feature-grid, .chapter-grid, .bonus-grid, .prompt-list { display: grid; }
+        .hero-grid,
+        .feature-grid,
+        .chapter-grid,
+        .bonus-grid,
+        .prompt-list {
+          grid-template-columns: 1fr;
+        }
+
         .cta-panel {
           flex-direction: column;
           align-items: flex-start;
         }
       }
+
       @media (max-width: 640px) {
-        .nav-links { display: none; }
-        .stats { grid-template-columns: 1fr; }
-        .nav { min-height: 68px; }
+        .nav-links {
+          display: none;
+        }
+
+        .stats {
+          grid-template-columns: 1fr;
+        }
       }
     </style>
   </head>
@@ -417,6 +490,7 @@
           <div class="brand-mark">AI</div>
           <span>IA Produtividade</span>
         </div>
+
         <nav class="nav-links" aria-label="Menu principal">
           <a href="#sobre">Sobre</a>
           <a href="#beneficios">Benefícios</a>
@@ -424,9 +498,8 @@
           <a href="#prompts">Prompts</a>
           <a href="#bonus">Bônus</a>
         </nav>
-        <div class="nav-actions">
-          <button class="btn btn-secondary">Acessar</button>
-        </div>
+
+        <button class="btn btn-secondary">Acessar</button>
       </div>
     </header>
 
@@ -490,7 +563,7 @@
         <div class="container">
           <div class="section-header">
             <h2>Por que este material funciona</h2>
-            <p>Conteúdo aplicado, estratégico e focado em execução real para quem deseja usar IA com clareza e resultado.</p>
+            <p>Conteúdo técnico, estratégico e focado em execução real para quem deseja usar IA com clareza e resultados.</p>
           </div>
 
           <div class="feature-grid">
@@ -503,13 +576,13 @@
             <article class="feature">
               <div class="feature-icon">📈</div>
               <h3>Decisão estratégica</h3>
-              <p>Use IA para interpretar dados, comparar cenários e apoiar decisões de forma mais consciente.</p>
+              <p>Use IA para interpretar dados, comparar cenários e apoiar decisões com mais precisão.</p>
             </article>
 
             <article class="feature">
               <div class="feature-icon">🚀</div>
               <h3>Negócios escaláveis</h3>
-              <p>Descubra como IA pode impactar vendas, marketing, gestão, operação e crescimento profissional.</p>
+              <p>Descubra como IA pode impactar marketing, vendas, gestão, operação e crescimento profissional.</p>
             </article>
           </div>
         </div>
@@ -526,19 +599,19 @@
             <article class="chapter">
               <div class="chapter-number">01</div>
               <h3>O que é IA e por que muda o trabalho</h3>
-              <p>Fundamentos e impacto de IA no contexto profissional da produtividade e da decisão.</p>
+              <p>Fundamentos e impacto da IA no contexto profissional, na produtividade e na tomada de decisão.</p>
             </article>
 
             <article class="chapter">
               <div class="chapter-number">02</div>
               <h3>IA para produtividade pessoal</h3>
-              <p>Organização, gestão do tempo, geração de listas, resumos e execução diária.</p>
+              <p>Organização, gestão de tempo, geração de listas, resumos, rotina e foco.</p>
             </article>
 
             <article class="chapter">
               <div class="chapter-number">03</div>
               <h3>IA para gestão e liderança</h3>
-              <p>Indicadores, métricas, análise de contexto e apoio à tomada de decisão em times.</p>
+              <p>Indicadores, métricas, análise de cenário e suporte à decisão em equipes.</p>
             </article>
 
             <article class="chapter">
@@ -588,18 +661,18 @@
         <div class="container">
           <div class="section-header">
             <h2>Bônus exclusivos</h2>
-            <p>Material complementar para acelerar sua implementação e deixar a IA útil na rotina.</p>
+            <p>Material complementar para acelerar a sua implementação e tornar a IA útil na rotina.</p>
           </div>
 
           <div class="bonus-grid">
             <article class="bonus">
               <h3>Checklist de produtividade</h3>
-              <p>Um framework prático para diagnosticar tarefas, definir objetivos e transformar rotina em execução.</p>
+              <p>Framework prático para diagnosticar tarefas, definir objetivos e transformar rotina em execução.</p>
             </article>
 
             <article class="bonus">
               <h3>Frases para reuniões</h3>
-              <p>Textos prontos para melhorar comunicação, alinhamento e clareza em conversas profissionais.</p>
+              <p>Modelos prontos para melhorar comunicação, alinhamento e clareza em conversas profissionais.</p>
             </article>
 
             <article class="bonus">
@@ -624,9 +697,10 @@
     </main>
 
     <footer>
-      <div class="container">
-        © 2026 IA para Produtividade e Negócios — todos os direitos reservados.
-      </div>
+      <div class="container">© 2026 IA para Produtividade e Negócios — todos os direitos reservados.</div>
     </footer>
   </body>
 </html>
+
+
+            
